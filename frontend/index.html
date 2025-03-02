@@ -1,31 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Resume | Smart Resume Analyzer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div id="particles-js"></div>
 
-    <div class="container">
-        <h1>Upload Your Resume</h1>
-        <p>Upload your resume to get AI-powered feedback and analysis.</p>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">AI Resume Analyzer</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
 
-        <div class="upload-box" id="uploadBox">
-            <input type="file" id="resumeInput" accept=".pdf">
-            <label for="resumeInput" class="upload-label">
-                <span>Drag & Drop your resume here</span>
-                <br>or<br>
-                <button class="browse-btn">Browse File</button>
-            </label>
-            <p id="fileName"></p>
+    <div id="page1">
+      <div class="left">
+        <h1 class="head1">
+          Is your resume <span>optimized</span> <br />
+          for success?
+        </h1>
+        <h3 class="head3">A free and fast AI resume checker <br> to ensure your resume is <br> ready to perform and get you  interview callbacks.</h3>
+      </div>
+
+      <div class="right">
+        <div>
+          <video autoplay loop muted playsinline class="video-bg">
+            <source src="videos/EmployeeAssessment.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-
-        <button class="upload-btn" id="uploadBtn">Upload & Analyze</button>
+      </div>
     </div>
 
+    <div id="page2">
+      <div class="container">
+        <h1>AI Resume Analyzer</h1>
+        <div class="content">
+          <!-- Left Section: Resume Upload -->
+          <div class="left-section">
+            <div id="uploadBox" class="upload-box">
+              <p>
+                Drag & Drop your resume here or
+                <label for="resumeInput">browse</label>
+              </p>
+              <input type="file" id="resumeInput" accept=".pdf" hidden />
+            </div>
+            <p id="fileName"></p>
+            <button id="uploadBtn">Upload & Analyze</button>
+          </div>
+
+          <!-- Right Section: Analysis Result -->
+          <div class="right-section">
+            <h2>Analysis Result</h2>
+            <div id="feedbackContainer">
+              <p>Upload a resume to see analysis here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="page3">
+      <h1 class="head">
+        Our AI-powered resume checker goes <br />
+        beyond typos and punctuation
+      </h1>
+
+      <div class="card-container">
+        <div class="card">
+          <i class="fa-solid fa-italic"></i>
+          <h2>Format</h2>
+          <ul>
+            <li>✅ File format and size</li>
+            <li>✅ Resume length</li>
+            <li>✅ Long bullet points with suggestions on how to shorten</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-file"></i>
+          <h2>Keywords</h2>
+          <ul>
+            <li>✅ Industry-specific keywords</li>
+            <li>✅ ATS optimization</li>
+            <li>✅ Matching job descriptions</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-text-height"></i>
+          <h2>Grammar & Style</h2>
+          <ul>
+            <li>✅ Grammar and spelling check</li>
+            <li>✅ Readability improvement</li>
+            <li>✅ Tone and professionalism</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="page4">
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-top">
+          <p>Featured in:</p>
+          <div class="brands">
+           
+          </div>
+          <p class="disclaimer">
+            *The names and logos of the companies referred to in this page are
+            all trademarks of their respective holders. Unless specifically
+            stated otherwise, such references are not intended to imply any
+            affiliation or association.
+          </p>
+        </div>
+
+        <div class="footer-content">
+         <div class="footer-column">
+              <h3>Resume</h3>
+              <a href="#">Resume Builder</a>
+              <a href="#">Resume Examples</a>
+              <a href="#">Resume Templates</a>
+              <a href="#">Resume Formats</a>
+              <a href="#">How to Write a Resume</a>
+            </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>Resume</h3>
+              <a href="#">Resume Builder</a>
+              <a href="#">Resume Examples</a>
+              <a href="#">Resume Templates</a>
+              <a href="#">Resume Formats</a>
+              <a href="#">How to Write a Resume</a>
+            </div>
+            <div class="footer-column">
+              <h3>Cover Letter</h3>
+              <a href="#">Cover Letter Generator</a>
+              <a href="#">Cover Letter Examples</a>
+              <a href="#">Cover Letter Templates</a>
+              <a href="#">Cover Letter Formats</a>
+              <a href="#">How to Write a Cover Letter</a>
+            </div>
+            <div class="footer-column">
+              <h3>CV</h3>
+              <a href="#">CV Maker</a>
+              <a href="#">CV Examples</a>
+              <a href="#">CV Templates</a>
+              <a href="#">CV Formats</a>
+              <a href="#">How to Write a CV</a>
+            </div>
+            <div class="footer-column">
+              <h3>About</h3>
+              <a href="#">About Us</a>
+              <a href="#">Reviews</a>
+              <a href="#">Press Coverage</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+              <a href="#">Editorial Policy</a>
+              <a href="#">Sitemap</a>
+            </div>
+            <div class="footer-column">
+              <h3>Help & Support</h3>
+              <a href="#">Work Here</a>
+              <a href="#">Contact Us</a>
+              <a href="#">FAQ</a>
+              <a href="#">Accessibility</a>
+              <a href="#">Affiliates</a>
+            </div>
+           
+            <div class="footer-column">
+              <h3>Customer Service</h3>
+              <p>customerservice@livecareer.com</p>
+              <p>800-652-8430 Mon–Fri 8am - 8pm CST</p>
+              <p>Sat 8am - 5pm CST, Sun 10am - 6pm CST</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2025, Bold Limited. All rights reserved.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <button class="scroll-top">Top</button>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
+    </script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

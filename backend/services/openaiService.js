@@ -1,8 +1,8 @@
-const OpenAI = require("openai");
+const { OpenAI } = require("openai");
 require("dotenv").config();
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // Ensure your .env file contains OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY, // Ensure your .env contains OPENAI_API_KEY
 });
 
 const analyzeResume = async (resumeText) => {
@@ -64,11 +64,15 @@ const analyzeResume = async (resumeText) => {
         },
       ],
       temperature: 0.7,
-      max_tokens: 800,
+      max_tokens: 600, // Reduced for faster response
     });
 
-    return response.choices[0].message.content;
+    return (
+      response?.choices?.[0]?.message?.content ||
+      "⚠ No valid response received."
+    );
   } catch (error) {
+    console.error("❌ OpenAI API Error:", error);
     return "⚠ Error analyzing resume. Please try again later.";
   }
 };

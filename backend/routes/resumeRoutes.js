@@ -9,6 +9,8 @@ const router = express.Router();
 
 // ✅ Upload Resume, Save to MongoDB & Get AI Feedback
 router.post("/upload", upload.single("resume"), async (req, res) => {
+  console.log("File:", req.file);
+  console.log("Body:", req.body);
   try {
     if (!req.file) {
       return res
@@ -33,7 +35,8 @@ router.post("/upload", upload.single("resume"), async (req, res) => {
         .status(400)
         .json({ error: "Resume content extraction failed." });
     }
-
+    console.log("---------------------------------");
+    
     const feedback = await analyzeResume(resumeText);
 
     const newResume = new Resume({
